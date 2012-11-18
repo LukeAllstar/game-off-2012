@@ -33,13 +33,16 @@ package
 			
 			FlxControl.player1.setCursorControl(false, false, true, true);
 			
-			FlxControl.player1.setJumpButton("SPACE", FlxControlHandler.KEYMODE_PRESSED, 200, FlxObject.FLOOR, 250, 200);
-			
+			FlxControl.player1.setJumpButton("SPACE", FlxControlHandler.KEYMODE_PRESSED, 400, FlxObject.FLOOR, 250, 200);
 			FlxControl.player1.setMovementSpeed(400, 0, 100, 200, 400, 0);
 			
 			FlxControl.player1.setGravity(0, 400);
 			
 			facing = FlxObject.RIGHT;
+			
+			if (FlxG.keys.justPressed("X")) {
+				shootGun();
+			}
 		}
 		
 		override public function update():void
@@ -58,9 +61,15 @@ package
 				}
 			} else if (velocity.y < 0) {
 				// jump
-				
 			}
+		}
+		
+		public function shootGun():void
+		{
+			var bullet:Bullet;
 			
+			bullet = new Bullet();
+			bullet.fire(100, 100);
 		}
 	}
 

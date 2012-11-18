@@ -11,6 +11,7 @@ package
 		public function GGO2012() 
 		{
 			super(400, 300, MenuState, 2);
+			//forceDebugger = true;
 		}
 		
 	}

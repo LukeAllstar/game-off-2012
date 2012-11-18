@@ -17,7 +17,7 @@ package
 			level = new Map1;
 			
 			player = new Player(44, 120);
-			score = new FlxText(0, 0, 100);
+			score = new FlxText(100, 100, 100);
 			score.color = 0xffffffff;
 			score.shadow = 0xff000000;
 			score.scrollFactor.x = 0;
@@ -27,6 +27,7 @@ package
 			add(player);
 			add(score);
 			add(level);
+			add(level.boxes);
 			
 			FlxG.worldBounds = new FlxRect(0, 0, level.width, level.height);
 			
