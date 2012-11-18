@@ -1043,23 +1043,23 @@ package org.flixel
 					Object1.x = Object1.x - overlap;
 					Object2.x += overlap;
 
-					var obj1velocity:Number = Math.sqrt((obj2v * obj2v * Object2.mass)/Object1.mass) * ((obj2v > 0)?1:-1);
-					var obj2velocity:Number = Math.sqrt((obj1v * obj1v * Object1.mass)/Object2.mass) * ((obj1v > 0)?1:-1);
-					var average:Number = (obj1velocity + obj2velocity)*0.5;
-					obj1velocity -= average;
-					obj2velocity -= average;
-					Object1.velocity.x = average + obj1velocity * Object1.elasticity;
-					Object2.velocity.x = average + obj2velocity * Object2.elasticity;
+					//var obj1velocity:Number = Math.sqrt((obj2v * obj2v * Object2.mass)/Object1.mass) * ((obj2v > 0)?1:-1);
+					//var obj2velocity:Number = Math.sqrt((obj1v * obj1v * Object1.mass)/Object2.mass) * ((obj1v > 0)?1:-1);
+					//var average:Number = (obj1velocity + obj2velocity)*0.5;
+					//obj1velocity -= average;
+					//obj2velocity -= average;
+					//Object1.velocity.x = average + obj1velocity * Object1.elasticity;
+					//Object2.velocity.x = average + obj2velocity * Object2.elasticity;
 				}
 				else if(!obj1immovable)
 				{
 					Object1.x = Object1.x - overlap;
-					Object1.velocity.x = obj2v - obj1v*Object1.elasticity;
+					//Object1.velocity.x = obj2v - obj1v*Object1.elasticity;
 				}
 				else if(!obj2immovable)
 				{
 					Object2.x += overlap;
-					Object2.velocity.x = obj1v - obj2v*Object2.elasticity;
+					//Object2.velocity.x = obj1v - obj2v*Object2.elasticity;
 				}
 				return true;
 			}

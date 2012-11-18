@@ -33,6 +33,7 @@ package
 			height = map.height;
 			
 			add(map);
+			
 			//add(boxMap);
 			parseBoxes();
 		}

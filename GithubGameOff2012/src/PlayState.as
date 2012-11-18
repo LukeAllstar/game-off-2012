@@ -11,7 +11,7 @@ package
 		private var player:Player;
 		private var level:Map1;
 		private var score:FlxText;
-		
+
 		public function PlayState() 
 		{	
 			level = new Map1;
@@ -24,10 +24,12 @@ package
 			score.scrollFactor.y = 0;
 			score.text = "text";
 			
-			add(player);
-			add(score);
 			add(level);
 			add(level.boxes);
+			add(player);
+			add(player.bullet);
+			//add(score);
+
 			
 			FlxG.worldBounds = new FlxRect(0, 0, level.width, level.height);
 			
@@ -40,10 +42,15 @@ package
 		{
 			super.update();
 			
-			FlxG.collide(player, level);
+			FlxG.collide(player, level);		
+			FlxG.collide(level.boxes, level);
 			
 			FlxG.collide(player, level.boxes);
+						
+			FlxG.collide(player.bullet, level.boxes, player.bullet.bulletCollideWithBox);
+			FlxG.collide(player.bullet, level, player.bullet.bulletCollideWithWall);
 		}
+		
 		
 	}
 

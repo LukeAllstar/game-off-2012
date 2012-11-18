@@ -11,6 +11,8 @@ package
 	public class Player extends FlxSprite
 	{
 		[Embed(source = '../assets/player_temp.png')] private var playerPNG:Class;
+		public var bullet:Bullet;
+		public var bullets:FlxGroup;
 		
 		public function Player(X:Number, Y:Number) 
 		{
@@ -38,11 +40,10 @@ package
 			
 			FlxControl.player1.setGravity(0, 400);
 			
-			facing = FlxObject.RIGHT;
+			facing = FlxObject.LEFT;
 			
-			if (FlxG.keys.justPressed("X")) {
-				shootGun();
-			}
+			bullet = new Bullet;
+			solid = true;
 		}
 		
 		override public function update():void
@@ -62,15 +63,12 @@ package
 			} else if (velocity.y < 0) {
 				// jump
 			}
-		}
-		
-		public function shootGun():void
-		{
-			var bullet:Bullet;
 			
-			bullet = new Bullet();
-			bullet.fire(100, 100);
+			if (FlxG.keys.Q) {
+				bullet.fire(x, y, _facing);
+			}
 		}
+
 	}
 
 }
